@@ -1,87 +1,88 @@
-Submitted by: Louis Miguel Sabaricos
+# Web Development Project 6 - **AstroDash**
 
-This web app: Displays an AstroDash-style data dashboard that uses the Marvel Comics API to fetch and visualize Marvel character data. Users can search characters by name, filter by the number of comics they appear in, and view summary statistics such as average comics count, median story appearances, and description percentage.
+**Submitted by:** Louis Miguel Sabaricos
 
-Time spent: 5 hours in total
+---
 
-Required Features
+### 🪐 Overview
 
-The following required functionality is completed:
+This web app, **AstroDash**, displays data fetched from the **Marvel API** (or ComicVine API, depending on working source) through a secure backend proxy.
+Users can search characters, view summary statistics, explore data visualizations, and click on individual items for detailed views—all while maintaining a modern “glass dashboard” interface with cosmic theming inspired by the original AstroDash design.
 
-✅ The site has a dashboard displaying a list of data fetched using an API call
+---
 
-The dashboard displays 10+ unique Marvel characters, one per row
+### ⏱ Time Spent
+**8 hours total**
 
-Each row shows Name, Comics count, Series count, Stories count, and Thumbnail
+---
 
-✅ useEffect React hook and async/await are used
+## ✅ Required Features
 
-✅ The app dashboard includes at least three summary statistics about the data
+The following **required** functionality is completed:
 
-Total Characters (filtered)
+- [x] **Clicking on an item in the list view displays more details about it**
+  - Clicking an item in the dashboard list navigates to a separate detail view.
+  - The detail view includes a description, comics count, and stories count.
+  - The sidebar remains visible in all pages (Dashboard + Detail View).
 
-Average Comics Available
+- [x] **Each detail view of an item has a direct, unique URL link**
+  - Each character or item can be accessed directly via `/character/:id`.
+  - URL visibly updates in the browser.
 
-Median Stories
+- [x] **The app includes at least two unique charts using fetched data**
+  - A **Bar Chart** displays comics count by character.
+  - A **Line Chart** shows stories count by character.
+  - Both charts are responsive and visually integrated into the dashboard.
 
-% of Characters With Descriptions
+---
 
-✅ A search bar allows the user to search for an item in the fetched data
+## 🌟 Optional Features
 
-The search bar filters characters by their name (nameStartsWith)
+- [x] Added a **modern “AstroDash” UI** with glassmorphism and nebula background.
+- [x] Added animated **hover effects** and glowing section chips for better UX.
+- [x] The site allows toggling between **Marvel API** and **ComicVine API** backends for fallback reliability.
+- [x] Dashboard cards summarize total characters, average comics, median stories, and percent with description.
 
-The list of results dynamically updates as the user types into the search bar
+---
 
-✅ An additional filter allows the user to restrict displayed items by specified categories
+## 📊 Additional Features
+- Enhanced **loading/error UI** states.
+- Reusable components styled via a single global CSS theme.
+- Integrated routing between `/`, `/search`, `/character/:id`, and `/about`.
 
-A slider filter allows restricting by Minimum Comics count
+---
 
-The dashboard list dynamically updates as the user adjusts the slider filter
+## 🎥 Video Walkthrough
 
-The following optional features are implemented:
+Here’s a walkthrough of the implemented user stories:
 
-✅ Multiple filters can be applied simultaneously (search + slider)
+<img src='./walkthrough-comicvine.gif' title='Video Walkthrough' width='800' />
 
-✅ Filters use different input types (text input + range slider)
+GIF created with **ScreenToGif (Windows)**
 
-✅ The user can navigate pages using “Prev” and “Next” buttons
+---
 
-The following additional features are implemented:
+## 🧠 Notes
 
-✅ Secure backend proxy (server.js) that generates MD5 hashes to protect the Marvel private key
+**Challenges Encountered:**
+- The **Marvel API** occasionally returned HTTP 500 errors, so fallback logic was implemented with ComicVine.  
+- Maintaining consistent UI style across both Dashboard and Detail pages required CSS refactoring.  
+- Debugging Vite import paths (`../lib/api`) and ensuring proper proxy connection was a key hurdle.
 
-✅ Responsive glass-style UI (sidebar, header, cards, and table layout)
+---
 
-✅ Error handling and loading states for failed or slow API responses
+## License
 
-✅ Thumbnail images and hover tooltips showing character descriptions
+    Copyright 2025 Louis Miguel Sabaricos
 
-Video Walkthrough
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-Here's a walkthrough of implemented user stories:
+        http://www.apache.org/licenses/LICENSE-2.0
 
-<img src='./walkthrough-marvel-dash.gif' title='walkthrough-marvel-dash' width='' alt='Video Walkthrough' />
-
-GIF created with ScreenToGif (Windows)
-
-Notes
-
-The biggest challenge was authenticating with the Marvel API since it requires a secure MD5 hash of timestamp + privateKey + publicKey.
-I solved this by setting up a lightweight Express proxy server (server.js) with environment variables to safely compute and forward the request.
-
-I also had to fix the Vite ESM issue by renaming vite.config.js to vite.config.mjs.
-
-License
-Copyright 2025 Louis Miguel Sabaricos
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
